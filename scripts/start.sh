@@ -52,6 +52,7 @@ fi
 
 # Replace variables in ovpn config file
 sed -i 's/%HOST_TUN_PROTOCOL%/'"$HOST_TUN_PROTOCOL"'/g' /etc/openvpn/server.conf
+sed -i 's/%PUSH_DNS%/'"$PUSH_DNS"'/g' /etc/openvpn/server.conf
 
 # Allow ${HOST_TUN_PROTOCOL} traffic on port 1194.
 iptables -A INPUT -i $ADAPTER -p ${HOST_TUN_PROTOCOL} -m state --state NEW,ESTABLISHED --dport 1194 -j ACCEPT
